@@ -5,10 +5,10 @@
   </style>
 
   <div>
-    <button id="nukeButton">Nuke video</button>
+    <button id="nukeButton">Nuke player</button>
   </div>
   <div>
-    <button id="restoreButton" hidden>Restore video</button>
+    <button id="restoreButton" hidden>Restore player</button>
   </div>
 
   <p>Credits: Media files are © copyright Blender Foundation | www.blender.org</p>
@@ -17,21 +17,17 @@
   </div>
 
   <script>
-    videoRef = video;
-
     nukeButton.addEventListener('click', _ => {
       video.removeAttribute('src');
       video.load();
-      video.remove();
 
       nukeButton.hidden = true;
       restoreButton.hidden = false;
     });
 
     restoreButton.addEventListener('click', _ => {
-      videoRef.src = 'https://storage.googleapis.com/media-session/caminandes/short.mp4';
-      videoRef.load();
-      document.body.appendChild(videoRef);
+      video.src = 'https://storage.googleapis.com/media-session/caminandes/short.mp4';
+      video.load();
 
       restoreButton.hidden = true;
       nukeButton.hidden = false;
